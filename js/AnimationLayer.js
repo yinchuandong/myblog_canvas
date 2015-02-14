@@ -20,46 +20,46 @@ var AnimationLayer = cc.Layer.extend({
         var centerPos = cc.p(winSize.width/2, winSize.height/2);
 
         //底色背景
-        var background = new cc.Sprite(resource.bg_dirt);
+        var background = new cc.Sprite(resource.bg_star_1);
         background.setPosition(centerPos);
-        background.setScale(2.0);
+        background.setScale(1.0);
         this.addChild(background, -2);
 
-        //下面草的背景
-        var grassLower = new cc.Sprite(resource.grass_lower);
-        grassLower.setAnchorPoint(cc.p(0.5, 1));
-        grassLower.setPosition(winSize.width/2, winSize.height/2);
-        this.addChild(grassLower, 1)
+        ////下面草的背景
+        //var grassLower = new cc.Sprite(resource.grass_lower);
+        //grassLower.setAnchorPoint(cc.p(0.5, 1));
+        //grassLower.setPosition(winSize.width/2, winSize.height/2);
+        //this.addChild(grassLower, 1);
+        //
+        ////上面草的背景
+        //var grassUpper = new cc.Sprite(resource.grass_upper);
+        //grassUpper.setAnchorPoint(cc.p(0.5, 0));
+        //grassUpper.setPosition(winSize.width/2, winSize.height/2);
+        //this.addChild(grassUpper, -1);
+        //
+        ////老鼠
+        //var mouse1 = new cc.Sprite(resource.mole_1);
+        //mouse1.attr({x : 200, y: 300});
+        //mouse1.setTag(0);
+        //self.mouseList.push(mouse1);
+        //this.addChild(mouse1, 0);
+        //
+        //var mouse2 = new cc.Sprite(resource.mole_1);
+        //mouse2.attr({x : 515, y: 300});
+        //mouse2.setTag(0);
+        //self.mouseList.push(mouse2);
+        //this.addChild(mouse2, 0);
+        //
+        //var mouse3 = new cc.Sprite(resource.mole_1);
+        //mouse3.attr({x : 815, y: 300});
+        //mouse3.setTag(0);
+        //self.mouseList.push(mouse3);
+        //this.addChild(mouse3, 0);
 
-        //上面草的背景
-        var grassUpper = new cc.Sprite(resource.grass_upper);
-        grassUpper.setAnchorPoint(cc.p(0.5, 0));
-        grassUpper.setPosition(winSize.width/2, winSize.height/2);
-        this.addChild(grassUpper, -1);
 
-        //老鼠
-        var mouse1 = new cc.Sprite(resource.mole_1);
-        mouse1.attr({x : 200, y: 300});
-        mouse1.setTag(0);
-        self.mouseList.push(mouse1);
-        this.addChild(mouse1, 0);
-
-        var mouse2 = new cc.Sprite(resource.mole_1);
-        mouse2.attr({x : 515, y: 300});
-        mouse2.setTag(0);
-        self.mouseList.push(mouse2);
-        this.addChild(mouse2, 0);
-
-        var mouse3 = new cc.Sprite(resource.mole_1);
-        mouse3.attr({x : 815, y: 300});
-        mouse3.setTag(0);
-        self.mouseList.push(mouse3);
-        this.addChild(mouse3, 0);
-
-
-        this.schedule(function () {
-            self.tryPopMouse();
-        }, 4);
+        //this.schedule(function () {
+        //    self.tryPopMouse();
+        //}, 4);
 
 
 //        this.scheduleUpdate();

@@ -5,11 +5,11 @@
 var resource = {
     about_future_box: 'img/about-future-box.png',
     about_me_box: 'img/about-future-box.png',
-    bg_cloud_1: 'img/bg/cloud-1.png',
-    bg_cloud_2: 'img/bg/cloud-2.png',
-    bg_cloud_3: 'img/bg/cloud-3.png',
-    bg_cloud_4: 'img/bg/cloud-4.png',
-    bg_cloud_5: 'img/bg/cloud-5.png',
+    bg_cloud_1: 'img/bg/cloud-1.jpg',
+    bg_cloud_2: 'img/bg/cloud-2.jpg',
+    bg_cloud_3: 'img/bg/cloud-3.jpg',
+    bg_cloud_4: 'img/bg/cloud-4.jpg',
+    bg_cloud_5: 'img/bg/cloud-5.jpg',
     bg_star_1: 'img/bg/star-1.png',
     bg_star_2: 'img/bg/star-2.png',
     bg_star_3: 'img/bg/star-3.png',
@@ -39,17 +39,3 @@ var resource = {
     work_box: 'img/work-box.png'
 
 };
-
-var g_resources = [
-    resource.bg_dirt,
-    resource.grass_lower,
-    resource.grass_upper,
-    resource.mole_1,
-    resource.mole_laugh1,
-    resource.mole_laugh2,
-    resource.mole_laugh3,
-    resource.mole_thump1,
-    resource.mole_thump2,
-    resource.mole_thump3,
-    resource.mole_thump4
-];

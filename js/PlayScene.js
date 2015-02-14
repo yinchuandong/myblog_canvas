@@ -6,10 +6,10 @@ var PlayScene = cc.Scene.extend({
 
     onEnter : function() {
         this._super();
-//        this.addChild(new BackgroundLayer());
+        var bgCouldLayer = new BackgroundLayer();
+        this.addChild(bgCouldLayer);
         var animationLayer = new AnimationLayer();
         this.addChild(animationLayer);
-//        animationLayer.onTouchesBegan()
 
         cc.eventManager.addListener({
             event : cc.EventListener.TOUCH_ONE_BY_ONE,
