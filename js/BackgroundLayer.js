@@ -14,7 +14,7 @@ var BackgroundLayer = cc.Layer.extend({
         var winSize = cc.director.getWinSize();
         var centerPos = cc.p(winSize.width/2, winSize.height/2);
 
-        var bg1 = new cc.Sprite(resource.bg_cloud_1);
+        var bg1 = new cc.Sprite(resource.bg_cloud_2);
         bg1.setAnchorPoint(0, 0);
         bg1.setPosition(0, 0);
         this.addChild(bg1, -2);

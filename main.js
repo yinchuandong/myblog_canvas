@@ -15,7 +15,10 @@ function runGame(){
         for(var key in resource){
             g_resources.push(resource[key]);
         }
-        cc.view.setDesignResolutionSize(window.outerWidth, window.outerHeight, cc.ResolutionPolicy.SHOW_ALL);
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		debugger
+        cc.view.setDesignResolutionSize(width, height, cc.ResolutionPolicy.FIXED_WIDTH);
         cc.view.resizeWithBrowserSize(true);
         cc.LoaderScene.preload(g_resources, function () {
 
