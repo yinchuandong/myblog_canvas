@@ -6,8 +6,10 @@ var PlayScene = cc.Scene.extend({
 
     onEnter : function() {
         this._super();
-        var bgCouldLayer = new BackgroundLayer();
+        var bgCouldLayer = new BgCloudLayer();
         this.addChild(bgCouldLayer);
+        var bgStarLayer = new BgStarLayer();
+        this.addChild(bgStarLayer);
         var animationLayer = new AnimationLayer();
         this.addChild(animationLayer);
 
@@ -15,7 +17,7 @@ var PlayScene = cc.Scene.extend({
             event : cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches : true,
             onTouchBegan : function (touch, event) {
-                animationLayer.onTouchBegan(touch, event);
+                //animationLayer.onTouchBegan(touch, event);
             },
 
             onTouchMoved : function (touch, event) {

@@ -4,8 +4,12 @@
 
 var AnimationLayer = cc.Layer.extend({
 
+    winSize: null,
+
     //当前老鼠的list
-    mouseList : [],
+    planetList : [],
+
+    rocket: null,
 
     ctor : function () {
         this._super();
@@ -16,53 +20,84 @@ var AnimationLayer = cc.Layer.extend({
         var self = this;
         this._super();
 
-        var winSize = cc.director.getWinSize();
-        var centerPos = cc.p(winSize.width/2, winSize.height/2);
+        self.winSize = cc.director.getWinSize();
+        var centerPos = cc.p(self.winSize.width/2, self.winSize.height/2);
 
         //底色背景
-        var background = new cc.Sprite(resource.bg_star_1);
-        background.setPosition(centerPos);
-        background.setScale(1.0);
-        this.addChild(background, -2);
+        var earth = new cc.Sprite(resource.earth);
+        earth.setAnchorPoint(0.5, 0);
+        earth.setPosition(self.winSize.width/2, -20);
+        earth.setScale(1.0);
+        this.addChild(earth, 1);
 
-        ////下面草的背景
-        //var grassLower = new cc.Sprite(resource.grass_lower);
-        //grassLower.setAnchorPoint(cc.p(0.5, 1));
-        //grassLower.setPosition(winSize.width/2, winSize.height/2);
-        //this.addChild(grassLower, 1);
-        //
-        ////上面草的背景
-        //var grassUpper = new cc.Sprite(resource.grass_upper);
-        //grassUpper.setAnchorPoint(cc.p(0.5, 0));
-        //grassUpper.setPosition(winSize.width/2, winSize.height/2);
-        //this.addChild(grassUpper, -1);
-        //
-        ////老鼠
-        //var mouse1 = new cc.Sprite(resource.mole_1);
-        //mouse1.attr({x : 200, y: 300});
-        //mouse1.setTag(0);
-        //self.mouseList.push(mouse1);
-        //this.addChild(mouse1, 0);
-        //
-        //var mouse2 = new cc.Sprite(resource.mole_1);
-        //mouse2.attr({x : 515, y: 300});
-        //mouse2.setTag(0);
-        //self.mouseList.push(mouse2);
-        //this.addChild(mouse2, 0);
-        //
-        //var mouse3 = new cc.Sprite(resource.mole_1);
-        //mouse3.attr({x : 815, y: 300});
-        //mouse3.setTag(0);
-        //self.mouseList.push(mouse3);
-        //this.addChild(mouse3, 0);
+        var work1 = new cc.Sprite(resource.work_1);
+        work1.setAnchorPoint(0, 0);
+        work1.setPosition(0, 500);
+        work1.setScale(0.5);
+        this.addChild(work1);
+
+        var work2 = new cc.Sprite(resource.work_2);
+        work2.setAnchorPoint(0, 0);
+        work2.setPosition(500, 1000);
+        work2.setScale(0.5);
+        this.addChild(work2);
+
+        var work3 = new cc.Sprite(resource.work_3);
+        work3.setAnchorPoint(0, 0);
+        work3.setPosition(500, 1500);
+        work3.setScale(0.5);
+        this.addChild(work3);
+
+        var work4 = new cc.Sprite(resource.work_4);
+        work4.setAnchorPoint(0, 0);
+        work4.setPosition(500, 1000);
+        work4.setScale(0.5);
+        this.addChild(work4);
+
+        var work5 = new cc.Sprite(resource.work_5);
+        work5.setAnchorPoint(0, 0);
+        work5.setPosition(500, 1000);
+        work5.setScale(0.5);
+        this.addChild(work5);
+
+        var work6 = new cc.Sprite(resource.work_6);
+        work6.setAnchorPoint(0, 0);
+        work6.setPosition(500, 1000);
+        work6.setScale(0.5);
+        this.addChild(work6);
+
+        var work7 = new cc.Sprite(resource.work_7);
+        work7.setAnchorPoint(0, 0);
+        work7.setPosition(500, 1000);
+        work7.setScale(0.5);
+        this.addChild(work7);
+
+        var work8 = new cc.Sprite(resource.work_8);
+        work8.setAnchorPoint(0, 0);
+        work8.setPosition(500, 1000);
+        work8.setScale(0.5);
+        this.addChild(work8);
 
 
-        //this.schedule(function () {
-        //    self.tryPopMouse();
-        //}, 4);
+		this.rocket = new cc.Sprite(resource.rocket_1);
+		this.rocket.setAnchorPoint(0.5, 0.5);
+		this.rocket.setPosition(self.winSize.width/2, this.rocket.getContentSize().height);
+		this.addChild(this.rocket, 2);
 
 
-//        this.scheduleUpdate();
+        this.scheduleUpdate();
+
+        //var moveLeft = cc.MoveBy.create(3, cc.p(-500, 0));
+        var moveLeft = cc.MoveTo.create(3, work1.getPosition());
+        var easeMoveLeft = cc.EaseInOut.create(moveLeft, 1);
+        //向上移动的回调
+        var moveLeftCallback = cc.CallFunc.create(function () {
+            self.rocket.runAction(cc.Sequence.create(easeMoveLeft.reverse(), moveRightCallback) );
+        }, this);
+        var moveRightCallback = cc.CallFunc.create(function () {
+            self.rocket.runAction(cc.Sequence.create(easeMoveLeft, moveLeftCallback ));
+        }, this);
+        self.rocket.runAction(cc.Sequence.create(moveLeft, moveLeftCallback));
 
     },
 
@@ -71,6 +106,10 @@ var AnimationLayer = cc.Layer.extend({
      * @param dt
      */
     update : function (dt) {
+        var pos = this.getPosition();
+        pos.y += -1;
+        this.rocket.setPositionY(this.rocket.getPositionY() + 1);
+        this.setPosition(pos);
     },
 
     /**

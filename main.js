@@ -17,7 +17,6 @@ function runGame(){
         }
 		var width = window.innerWidth;
 		var height = window.innerHeight;
-		debugger
         cc.view.setDesignResolutionSize(width, height, cc.ResolutionPolicy.FIXED_WIDTH);
         cc.view.resizeWithBrowserSize(true);
         cc.LoaderScene.preload(g_resources, function () {

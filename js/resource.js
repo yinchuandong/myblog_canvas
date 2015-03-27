@@ -20,7 +20,7 @@ var resource = {
     boom_3: 'img/boom/trophy-boom-3.png',
     comp: 'img/comp-1.gif',
     contact_box: 'img/contact-box.png',
-    earth: 'img/contact-box.png',
+    earth: 'img/earth.png',
     rocket_1: 'img/rocket-1.png',
     star_1: 'img/star-1.png',
     star_2: 'img/star-2.png',
